@@ -7,9 +7,6 @@ public class FanficAPPDbContext(DbContextOptions options) : DbContext(options)
     // DbSets representam as tabelas do banco, uma para cada entidade/modelo
 
     public DbSet<User> Users => Set<User>();
-
-
-
     public DbSet<Fanfic> Fanfics => Set<Fanfic>();
     public DbSet<ReadingList> ReadingLists => Set<ReadingList>();
     public DbSet<FanficReadingList> FanficReadingLists => Set<FanficReadingList>();

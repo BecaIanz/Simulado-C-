@@ -1,6 +1,7 @@
 namespace FanficAPP.UseCases.Login;
 
 public class LoginUseCase(
+    FanficAPPDbContext ctx,
     IJWTService jwtService
 )
 {
