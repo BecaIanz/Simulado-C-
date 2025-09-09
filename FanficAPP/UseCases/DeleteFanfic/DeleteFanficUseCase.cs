@@ -4,6 +4,6 @@ public class DeleteFanficUseCase()
 {
     public async Task<Result<DeleteFanficResponse>> Do(DeleteFanficPayload payload)
     {
-        return Result<DeleteFanficResponse>.Sucess();
+        return Result<DeleteFanficResponse>.Success(null);
     }
 }

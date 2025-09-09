@@ -25,16 +25,11 @@ public class EditListUseCase(
         if (fanfic is null)
             return Result<EditListResponse>.Fail("Fanfic não encontrada!");
 
-        var newFanfic = new FanficReadingList
-        {
-            FanficID = fanfic.FanficID,
-            ReadingListID = payload.ReadingListID,
-        };
 
-        ctx.ReadingLists.Add(newFanfic);
+        list.FanficList.Add(fanfic);
 
         list.LastModificationDate = DateTime.UtcNow;
 
-        return Result<EditListResponse>.Sucess(null);
+        return Result<EditListResponse>.Success(null);
     }
 }

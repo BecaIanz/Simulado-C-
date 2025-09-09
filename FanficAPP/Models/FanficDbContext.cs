@@ -9,7 +9,6 @@ public class FanficAPPDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<User> Users => Set<User>();
     public DbSet<Fanfic> Fanfics => Set<Fanfic>();
     public DbSet<ReadingList> ReadingLists => Set<ReadingList>();
-    public DbSet<FanficReadingList> FanficReadingLists => Set<FanficReadingList>();
 
     // Aqui definimos configurações avançadas, como relacionamentos entre tabelas
     protected override void OnModelCreating(ModelBuilder model)
@@ -20,22 +19,16 @@ public class FanficAPPDbContext(DbContextOptions options) : DbContext(options)
             .HasForeignKey(f => f.UserId)
             .OnDelete(DeleteBehavior.NoAction);
 
-        model.Entity<FanficReadingList>()
-            .HasOne(fr => fr.Fanfic)
-            .WithMany(f => f.FanficReadingLists)
-            .HasForeignKey(fr => fr.FanficID)
-            .OnDelete(DeleteBehavior.NoAction);
-
-         model.Entity<FanficReadingList>()
-            .HasOne(fr => fr.ReadingList)
-            .WithMany(f => f.FanficReadingLists)
-            .HasForeignKey(fr => fr.ReadingListID)
-            .OnDelete(DeleteBehavior.NoAction);
-          
         model.Entity<ReadingList>()
             .HasOne(r => r.User)
             .WithMany(u => u.ReadingLists)
             .HasForeignKey(r => r.UserId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        model.Entity<Fanfic>()
+            .HasMany(f => f.ReadingLists)
+            .WithMany(r => r.FanficList)
+            .UsingEntity(j => j.ToTable("FanficReadingLists"));//perguntar pro trevis que diacho é isso!!
+          
     }
 }

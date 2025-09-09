@@ -17,9 +17,9 @@ public class JWTService : IJWTService
             // CONFIGURAR CLAIMS!
             claims: [
                 //Nunca colocar a senha do usuario, pois não se passa dados criptografados no JWT para não ter vazamento de dados sensveis
-                new Claim(ClaimTypes.NameIdentifier, data.ProfileId.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, data.UserId.ToString()),
                 new Claim(ClaimTypes.Name, data.Username),
-                new Claim(ClaimType.Email, data.Email)
+                new Claim(ClaimTypes.Email, data.Email)
             ],
             expires: DateTime.UtcNow.AddHours(2),
             signingCredentials: new SigningCredentials(

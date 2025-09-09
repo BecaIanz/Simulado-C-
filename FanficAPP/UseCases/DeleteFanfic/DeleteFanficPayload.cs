@@ -1,6 +1,6 @@
 namespace FanficAPP.UseCases.DeleteFanfic;
 
-public record EditListPayload(
+public record DeleteFanficPayload(
     Guid UserID,
     Guid FanficID
 );
