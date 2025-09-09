@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FanficAPP.Models;
 
-// Context do banco de dados, herda DbContext do EF Core
 public class FanficAPPDbContext(DbContextOptions options) : DbContext(options)
 {
     // DbSets representam as tabelas do banco, uma para cada entidade/modelo

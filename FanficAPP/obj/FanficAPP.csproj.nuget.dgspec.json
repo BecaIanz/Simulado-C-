@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj": {}
+    "C:\\Users\\IAR1CT\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj": {
+    "C:\\Users\\IAR1CT\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj",
+        "projectUniqueName": "C:\\Users\\IAR1CT\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj",
         "projectName": "FanficAPP",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Simulado-C-\\FanficAPP\\obj\\",
+        "projectPath": "C:\\Users\\IAR1CT\\Desktop\\Simulado-C-\\FanficAPP\\FanficAPP.csproj",
+        "packagesPath": "C:\\Users\\IAR1CT\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\IAR1CT\\Desktop\\Simulado-C-\\FanficAPP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\IAR1CT\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -84,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.205/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
