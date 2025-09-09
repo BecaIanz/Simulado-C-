@@ -9,4 +9,5 @@ public class Fanfic
     public string Text { get; set; }
 
     public User User { get; set; }
+    public ICollection<FanficReadingList> FanficReadingLists { get; set; }
 }

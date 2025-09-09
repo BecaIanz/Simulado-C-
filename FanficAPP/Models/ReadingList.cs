@@ -10,5 +10,6 @@ public class ReadingList
     public string Title { get; set; }
     public DateTime LastModificationDate { get; set; }
     public ICollection<Fanfic> FanficList { get; set; }
+    public ICollection<FanficReadingList> FanficReadingLists { get; set; }
     public User User { get; set; }
 }
