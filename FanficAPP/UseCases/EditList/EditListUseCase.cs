@@ -32,7 +32,9 @@ public class EditListUseCase(
         };
 
         ctx.ReadingLists.Add(fanficList);
-        
+
+        list.LastModificationDate = DateTime.UtcNow;
+
         return Result<EditListResponse>.Sucess(null);
     }
 }
