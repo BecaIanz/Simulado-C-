@@ -1,3 +1,7 @@
+using FanficAPP.Models;
+using FanficAPP.Services.JWT;
+using Microsoft.EntityFrameworkCore;
+
 namespace FanficAPP.UseCases.Login;
 
 public class LoginUseCase(
@@ -21,7 +25,7 @@ public class LoginUseCase(
 
         // 
         var jwt = jwtService.CreateToken(new(
-            user.ID, user.Username, user.SubscriptionID
+            user.UserID, user.Username, user.Email
         ));
 
         // Se tudo der certo, retorna o JWT

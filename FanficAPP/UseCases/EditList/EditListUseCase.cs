@@ -1,3 +1,7 @@
+using FanficAPP.Models;
+using FanficAPP.UseCases.Getlist;
+using Microsoft.EntityFrameworkCore;
+
 namespace FanficAPP.UseCases.EditList;
 
 public class EditListUseCase(
@@ -6,32 +10,28 @@ public class EditListUseCase(
 {
     public async Task<Result<EditListResponse>> Do(EditListPayload payload)
     {
-        var user = await ctx.Users
-            .Include(u => u.ReadingLists)
-            .FirstOrDefault(u => u.UserID == payload.UserID);
-
-        var list = user.ReadingList
-            .FirstOrDefault(l => l.ReadingListID == payload.ReadingListID);
-
-        var fanfic = await ctx.Fanfics
-            .FirstOrDefaultAsync(f => f.FanficID == payload.FanficID);
-
-        if (user is null)
-            return Result<EditListResponse>.Fail("Usuario não Encontrado!");
+        var list = await ctx.ReadingLists
+            .FirstOrDefaultAsync(l => l.ReadingListID == payload.ReadingListID);
 
         if (list is null)
             return Result<EditListResponse>.Fail("Lista não Encontrada!");
         
+        if (list.UserId != payload.UserID)
+            return Result<EditListResponse>.Fail("Lista não é sua!");
+
+        var fanfic = await ctx.Fanfics
+            .FirstOrDefaultAsync(f => f.Title == payload.TitleFanfic);
+        
         if (fanfic is null)
             return Result<EditListResponse>.Fail("Fanfic não encontrada!");
 
-        var fanficList = new FanficReadingList
+        var newFanfic = new FanficReadingList
         {
-            FanficID = payload.FanficID,
-            ReadingListID = payload.ReadingListID
+            FanficID = fanfic.FanficID,
+            ReadingListID = payload.ReadingListID,
         };
 
-        ctx.ReadingLists.Add(fanficList);
+        ctx.ReadingLists.Add(newFanfic);
 
         list.LastModificationDate = DateTime.UtcNow;
 
