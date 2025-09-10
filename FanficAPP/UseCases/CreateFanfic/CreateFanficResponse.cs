@@ -1,3 +1,5 @@
 namespace FanficAPP.UseCases.CreateFanfic;
 
-public record CreateFanficResponse;
+public record CreateFanficResponse(
+    Guid FanficID
+);

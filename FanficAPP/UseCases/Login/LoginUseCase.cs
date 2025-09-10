@@ -1,19 +1,19 @@
 using FanficAPP.Models;
 using FanficAPP.Services.JWT;
+using FanficAPP.Services.Profile;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanficAPP.UseCases.Login;
 
 public class LoginUseCase(
     FanficAPPDbContext ctx,
-    IJWTService jwtService
+    IJWTService jwtService,
+    IProfileService profileService
 )
 {
     public async Task<Result<LoginResponse>> Do(LoginPayload payload)
     {
-        var user = await ctx.Users.FirstOrDefaultAsync(
-            p => p.Username == payload.Login || p.Email == payload.Login
-        );
+        var user = await profileService.FindByLogin(payload.Login);     
 
         // Se o usuário for null, retorna Fail com mensagem
         if (user is null)

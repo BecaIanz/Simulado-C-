@@ -20,6 +20,8 @@ public class GetListUseCase(
 
         // CRIE RECORDS (PAYLOADS/DTO) PARA ARMAZENAR O RESULTADO DA QUERY
         // NUNCA RETORNAR MODELOS DO BANCO DE DADOS
-        return Result<GetListResponse>.Success(new(lists));
+        var response = new GetListResponse(lists);
+        
+        return Result<GetListResponse>.Success(response);
     }
 }

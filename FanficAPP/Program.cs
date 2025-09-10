@@ -7,8 +7,5 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<FanficAPPDbContext>(options =>
-{
-    var sqlConn = Environment.GetEnvironmentVariable("SQL_CONNECTION");
-    options.UseSqlServer(sqlConn);
-});
+    options.UseInMemoryDatabase("MeuBancoInMemory"));
 
