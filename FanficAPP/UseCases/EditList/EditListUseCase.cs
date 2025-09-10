@@ -29,6 +29,7 @@ public class EditListUseCase(
         list.FanficList.Add(fanfic);
 
         list.LastModificationDate = DateTime.UtcNow;
+        await ctx.SaveChangesAsync();
 
         return Result<EditListResponse>.Success(null);
     }

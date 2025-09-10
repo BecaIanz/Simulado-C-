@@ -27,8 +27,7 @@ public class FanficAPPDbContext(DbContextOptions options) : DbContext(options)
 
         model.Entity<Fanfic>()
             .HasMany(f => f.ReadingLists)
-            .WithMany(r => r.FanficList)
-            .UsingEntity(j => j.ToTable("FanficReadingLists"));//perguntar pro trevis que diacho é isso!!
+            .WithMany(r => r.FanficList);
           
     }
 }
