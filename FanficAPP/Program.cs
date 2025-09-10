@@ -8,6 +8,7 @@ using FanficAPP.UseCases.EditList;
 using FanficAPP.UseCases.GetList;
 using FanficAPP.UseCases.Login;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ThePixeler.Services.Profiles;
@@ -36,20 +37,20 @@ var keyBytes = Encoding.UTF8.GetBytes(jwtSecret);
 var key = new SymmetricSecurityKey(keyBytes);
 
 // Começo MAIN Config JWT
-// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//     .AddJwtBearer(options =>
-//     {
-//         options.TokenValidationParameters = new()
-//         {
-//             ValidateIssuer = false,
-//             ValidateAudience = false,
-//             ValidIssuer = "FanficAPP", // Lembrar de Trocar o Nome
-//             ValidateIssuerSigningKey = true,
-//             ValidateLifetime = true,
-//             ClockSkew = TimeSpan.Zero,
-//             IssuerSigningKey = key,
-//         };
-//     });
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new()
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidIssuer = "FanficAPP", // Lembrar de Trocar o Nome
+            ValidateIssuerSigningKey = true,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero,
+            IssuerSigningKey = key,
+        };
+    });
     
 builder.Services.AddAuthentication(); // Config JWT
 builder.Services.AddAuthorization(); // Config JWT
@@ -57,8 +58,8 @@ builder.Services.AddAuthorization(); // Config JWT
 
 var app = builder.Build();
 
-// app.UseSwagger();
-// app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseAuthentication(); // Config JWT
 app.UseAuthorization(); // Config JWT

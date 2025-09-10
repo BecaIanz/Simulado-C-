@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FanficAPP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9796ba2eff402e14f2ed5a0ed7d2c3ab1e65dc39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f597fdc7dfd3c6a6f9186db279934d59fc136abe")]
 [assembly: System.Reflection.AssemblyProductAttribute("FanficAPP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FanficAPP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
